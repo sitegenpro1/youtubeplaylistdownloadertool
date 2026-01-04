@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Basic Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free YouTube Playlist Downloader - Download Entire Playlists in MP4/MP3</title>
+    <meta name="description" content="Download complete YouTube playlists in MP4 or MP3 format. Free, fast, and easy-to-use YouTube playlist downloader with progress tracking and batch processing.">
+    <meta name="keywords" content="YouTube playlist downloader, download YouTube playlist, MP4 converter, MP3 converter, YouTube video downloader, playlist download, batch download YouTube">
+    <meta name="author" content="YouTube Playlist Downloader">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Free YouTube Playlist Downloader - Download Entire Playlists">
+    <meta property="og:description" content="Download complete YouTube playlists in MP4 or MP3 format. Free, fast, and easy-to-use with progress tracking.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourdomain.com">
+    <meta property="og:image" content="https://yourdomain.com/og-image.jpg">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Free YouTube Playlist Downloader">
+    <meta name="twitter:description" content="Download complete YouTube playlists in MP4 or MP3 format with progress tracking.">
+    <meta name="twitter:image" content="https://yourdomain.com/twitter-image.jpg">
+    
+    <!-- Google Search Console Verification (Replace with your verification code) -->
+    <meta name="google-site-verification" content="YOUR_VERIFICATION_CODE_HERE">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- External Libraries -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/splitting@1.0.6/dist/splitting.css">
+    <script src="https://unpkg.com/splitting@1.0.6/dist/splitting.min.js"></script>
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "YouTube Playlist Downloader",
+        "description": "Free online tool to download YouTube playlists in MP4 or MP3 format",
+        "url": "https://yourdomain.com",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "Web",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        }
+    }
+    </script>
+</head>
+<body class="bg-gray-50 font-inter">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <h1 class="text-xl font-bold text-gray-900">YouTube Playlist Downloader</h1>
+                    </div>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#how-to-use" class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">How to Use</a>
+                        <a href="#faq" class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">FAQ</a>
+                        <a href="#dmca" class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">DMCA</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-700 hover:text-blue-600 focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t">
+                <a href="#how-to-use" class="text-gray-700 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium">How to Use</a>
+                <a href="#faq" class="text-gray-700 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium">FAQ</a>
+                <a href="#dmca" class="text-gray-700 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium">DMCA</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-br from-blue-50 to-white py-20 px-4 relative overflow-hidden">
+        <!-- Background Particles -->
+        <div id="particles-container" class="absolute inset-0 opacity-30"></div>
+        
+        <div class="max-w-4xl mx-auto text-center relative z-10">
+            <h1 class="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
+                <span id="typed-heading"></span>
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto">
+                Download complete YouTube playlists in MP4 or MP3 format with our free, easy-to-use online tool. 
+                Track progress, download one by one, and enjoy offline viewing.
+            </p>
+            
+            <!-- URL Input -->
+            <div class="max-w-2xl mx-auto mb-8">
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <div class="flex flex-col md:flex-row gap-4">
+                        <div class="flex-1">
+                            <input 
+                                type="url" 
+                                id="playlist-url" 
+                                placeholder="Paste YouTube playlist URL here (e.g., https://youtube.com/playlist?list=...)"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm"
+                            >
+                            <div id="url-error" class="text-red-500 text-sm mt-2 hidden"></div>
+                        </div>
+                        <button 
+                            id="analyze-btn" 
+                            class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-medium transition-colors whitespace-nowrap"
+                        >
+                            Analyze Playlist
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-sm text-gray-500">
+                Supports all YouTube playlist formats • No registration required • 100% free
+            </div>
+        </div>
+    </section>
+
+    <!-- Playlist Analysis Results -->
+    <section id="playlist-results" class="py-12 px-4 hidden">
+        <div class="max-w-6xl mx-auto">
+            <div class="bg-white rounded-lg shadow-lg p-6 mb-8">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6">
+                    <div>
+                        <h2 id="playlist-title" class="text-2xl font-bold text-gray-900 mb-2"></h2>
+                        <p id="playlist-info" class="text-gray-600"></p>
+                    </div>
+                    <button 
+                        id="download-all-btn" 
+                        class="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg font-medium transition-colors mt-4 md:mt-0"
+                    >
+                        Download All Videos
+                    </button>
+                </div>
+                
+                <!-- Video List -->
+                <div id="video-list" class="space-y-3 max-h-96 overflow-y-auto">
+                    <!-- Videos will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Progress -->
+    <section id="download-progress" class="py-12 px-4 hidden">
+        <div class="max-w-4xl mx-auto">
+            <div class="bg-white rounded-lg shadow-lg p-8 text-center">
+                <h3 class="text-2xl font-bold text-gray-900 mb-6">Download Progress</h3>
+                
+                <!-- Progress Bar -->
+                <div class="mb-6">
+                    <div class="bg-gray-200 rounded-full h-4 mb-2">
+                        <div id="progress-bar" class="bg-blue-600 h-4 rounded-full transition-all duration-500" style="width: 0%"></div>
+                    </div>
+                    <div class="flex justify-between text-sm text-gray-600">
+                        <span id="progress-text">Ready to download</span>
+                        <span id="progress-percentage">0%</span>
+                    </div>
+                </div>
+                
+                <!-- Current Video Status -->
+                <div id="current-video" class="mb-6 hidden">
+                    <div class="flex items-center justify-center space-x-3">
+                        <div class="animate-spin rounded-full h-6 w-6 border-b-2 border-blue-600"></div>
+                        <span id="current-video-text" class="text-lg text-gray-700"></span>
+                    </div>
+                </div>
+                
+                <!-- Download Button -->
+                <div class="flex justify-center space-x-4">
+                    <button 
+                        id="cancel-download-btn" 
+                        class="bg-gray-500 hover:bg-gray-600 text-white px-6 py-3 rounded-lg font-medium transition-colors"
+                    >
+                        Cancel Download
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How to Use Section -->
+    <section id="how-to-use" class="py-16 px-4 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">How to Use YouTube Playlist Downloader</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Follow these simple steps to download your favorite YouTube playlists for offline viewing
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <div class="bg-blue-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl font-bold text-blue-600">1</span>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Copy Playlist URL</h3>
+                    <p class="text-gray-600 text-sm">Open YouTube and copy the playlist URL from your browser's address bar</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="bg-blue-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl font-bold text-blue-600">2</span>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Paste URL</h3>
+                    <p class="text-gray-600 text-sm">Paste the copied URL into our downloader input field above</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="bg-blue-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl font-bold text-blue-600">3</span>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Analyze Playlist</h3>
+                    <p class="text-gray-600 text-sm">Click "Analyze Playlist" to fetch all videos and check availability</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="bg-green-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl font-bold text-green-600">4</span>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Download Videos</h3>
+                    <p class="text-gray-600 text-sm">Select your preferred format and quality, then start downloading</p>
+                </div>
+            </div>
+            
+            <div class="mt-12 bg-gray-50 rounded-lg p-8">
+                <h3 class="text-xl font-semibold text-gray-900 mb-4">Supported Formats & Quality Options</h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <h4 class="font-medium text-gray-900 mb-2">Video Formats</h4>
+                        <ul class="text-gray-600 space-y-1 text-sm">
+                            <li>• MP4 (360p, 480p, 720p, 1080p)</li>
+                            <li>• WebM (VP8, VP9)</li>
+                            <li>• 3GP (for mobile devices)</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-medium text-gray-900 mb-2">Audio Formats</h4>
+                        <ul class="text-gray-600 space-y-1 text-sm">
+                            <li>• MP3 (128kbps, 192kbps, 320kbps)</li>
+                            <li>• M4A/AAC</li>
+                            <li>• OGG Vorbis</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-16 px-4 bg-gray-50">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Why Choose Our YouTube Playlist Downloader?</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-lg p-6 shadow-sm">
+                    <div class="bg-blue-100 rounded-lg p-3 w-12 h-12 flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Fast & Efficient</h3>
+                    <p class="text-gray-600 text-sm">Download multiple videos simultaneously with our optimized parallel processing system</p>
+                </div>
+                
+                <div class="bg-white rounded-lg p-6 shadow-sm">
+                    <div class="bg-green-100 rounded-lg p-3 w-12 h-12 flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">100% Safe & Secure</h3>
+                    <p class="text-gray-600 text-sm">No software installation required. All downloads happen directly in your browser</p>
+                </div>
+                
+                <div class="bg-white rounded-lg p-6 shadow-sm">
+                    <div class="bg-purple-100 rounded-lg p-3 w-12 h-12 flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Multiple Quality Options</h3>
+                    <p class="text-gray-600 text-sm">Choose from various video and audio quality options to suit your needs</p>
+                </div>
+                
+                <div class="bg-white rounded-lg p-6 shadow-sm">
+                    <div class="bg-yellow-100 rounded-lg p-3 w-12 h-12 flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">User-Friendly Interface</h3>
+                    <p class="text-gray-600 text-sm">Simple, intuitive design that makes downloading playlists effortless for everyone</p>
+                </div>
+                
+                <div class="bg-white rounded-lg p-6 shadow-sm">
+                    <div class="bg-red-100 rounded-lg p-3 w-12 h-12 flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Completely Free</h3>
+                    <p class="text-gray-600 text-sm">No hidden costs, premium features, or subscription requirements. Use forever free</p>
+                </div>
+                
+                <div class="bg-white rounded-lg p-6 shadow-sm">
+                    <div class="bg-indigo-100 rounded-lg p-3 w-12 h-12 flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Progress Tracking</h3>
+                    <p class="text-gray-600 text-sm">Monitor download progress in real-time with detailed status updates and completion notifications</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-16 px-4 bg-white">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h2>
+                <p class="text-xl text-gray-600">Get answers to common questions about downloading YouTube playlists</p>
+            </div>
+            
+            <div class="space-y-4">
+                <div class="faq-item border border-gray-200 rounded-lg">
+                    <button class="faq-question w-full text-left px-6 py-4 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-lg">
+                        <div class="flex justify-between items-center">
+                            <h3 class="text-lg font-medium text-gray-900">Is it legal to download YouTube playlists?</h3>
+                            <svg class="w-5 h-5 text-gray-500 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </div>
+                    </button>
+                    <div class="faq-answer hidden px-6 pb-4">
+                        <p class="text-gray-600">Downloading YouTube content is legal for personal use with content you own or have permission to download. Always respect copyright laws and YouTube's terms of service. Downloading copyrighted content without permission may violate laws in your country. We recommend downloading only your own content, Creative Commons videos, or content you have explicit permission to download.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item border border-gray-200 rounded-lg">
+                    <button class="faq-question w-full text-left px-6 py-4 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-lg">
+                        <div class="flex justify-between items-center">
+                            <h3 class="text-lg font-medium text-gray-900">Can I download entire playlists at once?</h3>
+                            <svg class="w-5 h-5 text-gray-500 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </div>
+                    </button>
+                    <div class="faq-answer hidden px-6 pb-4">
+                        <p class="text-gray-600">Yes! Our tool is specifically designed for downloading entire YouTube playlists. Simply paste the playlist URL and our system will analyze all videos in the playlist. You can then download them individually or as a complete collection. The tool shows progress for each video and provides status updates throughout the process.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item border border-gray-200 rounded-lg">
+                    <button class="faq-question w-full text-left px-6 py-4 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-lg">
+                        <div class="flex justify-between items-center">
+                            <h3 class="text-lg font-medium text-gray-900">What video and audio formats are supported?</h3>
+                            <svg class="w-5 h-5 text-gray-500 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </div>
+                    </button>
+                    <div class="faq-answer hidden px-6 pb-4">
+                        <p class="text-gray-600">We support multiple formats to suit your needs. Video formats include MP4 (most popular), WebM, and 3GP for mobile devices. Audio formats include MP3, M4A/AAC, and OGG Vorbis. Quality options range from 360p to 1080p for video, and 128kbps to 320kbps for audio. You can choose the format and quality that best fits your device and storage requirements.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item border border-gray-200 rounded-lg">
+                    <button class="faq-question w-full text-left px-6 py-4 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-lg">
+                        <div class="flex justify-between items-center">
+                            <h3 class="text-lg font-medium text-gray-900">Why is my browser blocking the download?</h3>
+                            <svg class="w-5 h-5 text-gray-500 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </div>
+                    </button>
+                    <div class="faq-answer hidden px-6 pb-4">
+                        <p class="text-gray-600">Modern browsers have built-in security features that sometimes block multiple downloads. If your browser blocks the download, you'll see a notification or popup asking for permission. To fix this: 1) Look for a notification in your browser's address bar, 2) Click "Allow" or "Always allow downloads from this site", 3) Refresh the page and try again. You may need to adjust your browser's download settings in Preferences or Settings.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item border border-gray-200 rounded-lg">
+                    <button class="faq-question w-full text-left px-6 py-4 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-lg">
+                        <div class="flex justify-between items-center">
+                            <h3 class="text-lg font-medium text-gray-900">Do I need to install any software?</h3>
+                            <svg class="w-5 h-5 text-gray-500 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </div>
+                    </button>
+                    <div class="faq-answer hidden px-6 pb-4">
+                        <p class="text-gray-600">No! Our YouTube playlist downloader works entirely in your web browser. There's no software to install, no browser extensions required, and no registration needed. Simply visit our website, paste your playlist URL, and start downloading immediately. This makes our tool safe, secure, and accessible from any device with a web browser.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item border border-gray-200 rounded-lg">
+                    <button class="faq-question w-full text-left px-6 py-4 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-lg">
+                        <div class="flex justify-between items-center">
+                            <h3 class="text-lg font-medium text-gray-900">How long does it take to download a playlist?</h3>
+                            <svg class="w-5 h-5 text-gray-500 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </div>
+                    </button>
+                    <div class="faq-answer hidden px-6 pb-4">
+                        <p class="text-gray-600">Download time depends on several factors: the number of videos in the playlist, your internet connection speed, the quality you choose, and your device's performance. A typical 10-video playlist might take 5-15 minutes to download completely. Our tool processes videos one by one to ensure reliability and provides real-time progress updates so you can see exactly what's happening.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item border border-gray-200 rounded-lg">
+                    <button class="faq-question w-full text-left px-6 py-4 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-lg">
+                        <div class="flex justify-between items-center">
+                            <h3 class="text-lg font-medium text-gray-900">Can I download private or age-restricted playlists?</h3>
+                            <svg class="w-5 h-5 text-gray-500 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </div>
+                    </button>
+                    <div class="faq-answer hidden px-6 pb-4">
+                        <p class="text-gray-600">Our tool can only download public and unlisted playlists that are accessible without logging into YouTube. Private playlists and age-restricted content cannot be downloaded due to YouTube's security measures. If you need to download your own private content, make the playlist public temporarily, download it, then set it back to private. For age-restricted content, you'll need to watch it directly on YouTube.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DMCA Notice Section -->
+    <section id="dmca" class="py-16 px-4 bg-gray-50">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">DMCA Notice & Copyright Information</h2>
+            </div>
+            
+            <div class="bg-white rounded-lg shadow-sm p-8">
+                <div class="prose max-w-none">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Copyright Compliance</h3>
+                    <p class="text-gray-600 mb-4">
+                        Our YouTube Playlist Downloader tool is designed for educational and personal use only. We respect intellectual property rights and expect our users to do the same. This tool should only be used to download content that you own, have created yourself, or have explicit permission from the copyright holder to download.
+                    </p>
+                    
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">User Responsibilities</h3>
+                    <p class="text-gray-600 mb-4">
+                        By using our service, you agree to the following terms:
+                    </p>
+                    <ul class="list-disc list-inside text-gray-600 mb-4 space-y-2">
+                        <li>You will only download content for which you have legal rights or permission</li>
+                        <li>You will not use downloaded content for commercial purposes without proper authorization</li>
+                        <li>You will respect YouTube's Terms of Service and Community Guidelines</li>
+                        <li>You understand that downloading copyrighted material without permission may violate laws in your jurisdiction</li>
+                        <li>You are solely responsible for ensuring your use of this tool complies with applicable laws</li>
+                    </ul>
+                    
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">DMCA Takedown Procedure</h3>
+                    <p class="text-gray-600 mb-4">
+                        If you are a copyright owner and believe your content is being downloaded through our service without authorization, please contact us with the following information:
+                    </p>
+                    <ul class="list-disc list-inside text-gray-600 mb-4 space-y-2">
+                        <li>A description of the copyrighted work that you claim has been infringed</li>
+                        <li>Your contact information (name, address, email, phone number)</li>
+                        <li>A statement that you have a good faith belief that use of the material is not authorized by the copyright owner</li>
+                        <li>A statement under penalty of perjury that the information in your notice is accurate</li>
+                        <li>Your physical or electronic signature</li>
+                    </ul>
+                    
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Contact Information</h3>
+                    <p class="text-gray-600 mb-4">
+                        For DMCA takedown requests or copyright concerns, please contact us at:
+                    </p>
+                    <p class="text-gray-600 mb-2">Email: dmca@yourdomain.com</p>
+                    <p class="text-gray-600 mb-4">Please allow 24-48 hours for a response to your inquiry.</p>
+                    
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Legal Disclaimer</h3>
+                    <p class="text-gray-600">
+                        This tool is provided "as is" without any warranties. We do not host, store, or distribute any downloaded content. All downloads occur directly between the user's browser and YouTube's servers. Users are solely responsible for ensuring their use of this tool complies with all applicable laws and regulations in their jurisdiction. We disclaim all liability for any misuse of this tool or any copyright infringement by users.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8 px-4">
+        <div class="max-w-6xl mx-auto text-center">
+            <div class="mb-4">
+                <h3 class="text-lg font-semibold mb-2">YouTube Playlist Downloader</h3>
+                <p class="text-gray-400 text-sm">Free, fast, and easy-to-use online tool for downloading YouTube playlists</p>
+            </div>
+            <div class="border-t border-gray-800 pt-4">
+                <p class="text-gray-400 text-sm">
+                    © 2025 YouTube Playlist Downloader. All rights reserved. 
+                    This tool is for educational and personal use only. Please respect copyright laws.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Success Modal -->
+    <div id="success-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-lg p-8 max-w-md mx-4 text-center">
+            <div class="bg-green-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-2">Download Complete!</h3>
+            <p class="text-gray-600 mb-6">All videos from the playlist have been processed successfully.</p>
+            <button id="close-modal-btn" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-medium transition-colors">
+                Download Another Playlist
+            </button>
+        </div>
+    </div>
+
+    <!-- Browser Block Modal -->
+    <div id="block-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-lg p-8 max-w-md mx-4 text-center">
+            <div class="bg-orange-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                <svg class="w-8 h-8 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z"></path>
+                </svg>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-2">Browser Download Blocked</h3>
+            <p class="text-gray-600 mb-4">Your browser has blocked the download for security reasons.</p>
+            <div class="text-sm text-gray-500 mb-6">
+                <p class="mb-2">To fix this:</p>
+                <ol class="text-left space-y-1">
+                    <li>1. Look for a notification in your browser's address bar</li>
+                    <li>2. Click "Allow" or "Always allow downloads from this site"</li>
+                    <li>3. Refresh the page and try again</li>
+                </ol>
+            </div>
+            <button id="close-block-modal-btn" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-medium transition-colors">
+                Try Again
+            </button>
+        </div>
+    </div>
+
+    <!-- Google Analytics (Replace with your tracking ID) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
+
+    <!-- Custom JavaScript -->
+    <script src="js/app.js"></script>
+</body>
+</html>
